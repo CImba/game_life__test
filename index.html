@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>Game "Life"</title>
+  <meta name="description" content="Game Life">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="apple-touch-icon" href="icon.png">
+  <link rel="stylesheet" href="css/main.css">
+
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+  <div class="setting" id="test">
+    <div class="setting__block">
+      <label class="fullW title">Задать размеры поля</label>
+
+      <label for="sizeX">X (ширина)</label>
+      <input id="sizeX" type="number" min="3" max="1501" value="10" data-size="sizeX" name="size" />
+
+      <label for="sizeY">Y (высота)</label>
+      <input id="sizeY" type="number" min="3" max="1501" value="10" data-size="sizeY" name="size" />
+
+      <button class="fullW" data-setting-btn="create-place">Сгенерировать поле</button>
+    </div>
+    <div class="setting__block radio-block" id="life-start-block" style="display: none;">
+      <label class="fullW title">Установить начальные клетки</label>
+
+      <button class="fullW" name="set-first-state" onclick="setStartPositions('mouse')" data-setting-btn="generation-mouse">Выбрать / редактировать</button>
+      <button class="fullW" data-setting-btn="generation-auto">Сгенерировать автоматически</button>
+    </div>
+    <div class="setting__block" id="life-rules-block" style="display: none;">
+      <label class="fullW title">Управление игрой</label>
+
+      <button onclick="onStartLife()" class="fullW" data-setting-btn="play">Start</button>
+      <button onclick="onPauseLife()" class="fullW" data-setting-btn="pause">Pause</button>
+    </div>
+  </div>
+
+  <div class="place__wrapper">
+    <span class="place__info">0</span>
+    <span class="place__result"></span>
+    <div class="place" id="place"></div>
+  </div>
+
+  <div class="loading__wrapper" style="display: none;">
+    <div class="loading">
+      Loading...
+    </div>
+  </div>
+
+  <div class="popup__wrapper" style="display: none">
+    <div class="popup">
+      <div class="popup__title"></div>
+      <p class="popup__text"></p>
+      <button class="popup__close">OK</button>
+    </div>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+
+</html>
